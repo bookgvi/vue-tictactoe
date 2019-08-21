@@ -24,6 +24,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Cell from './Cell'
 import { mapGetters, mapActions } from 'vuex'
 export default {
@@ -59,9 +60,9 @@ export default {
     resetGame () {
       this.isReset = false
       this.restart()
-      setTimeout(() => {
+      this.$nextTick(() => {
         this.isReset = true
-      }, 200)
+      })
     }
   }
 }
