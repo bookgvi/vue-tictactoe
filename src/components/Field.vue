@@ -8,7 +8,7 @@
       <div v-if="showLine==6" class="line line_3"></div>
       <div v-if="showLine==4" class="line line_4"></div>
       <div v-if="showLine==7" class="line line_5"></div>
-      <div v-if="showLine==6" class="line line_6"></div>
+      <div v-if="showLine==8" class="line line_6"></div>
       <div v-if="showLine==5" class="line line_7"></div>
       <div v-if="showLine==2" class="line line_8"></div>
       <game-cell
