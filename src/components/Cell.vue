@@ -37,7 +37,7 @@ export default {
     ]),
     setXO () {
       if (this.isPlaying) {
-        this.draw = this.isXO ? 'x' : 'o'
+        this.draw = this.isXO ? 'X' : 'O'
         this.payload.cellNum = this.cellNumber - 1
         this.payload.XorO = this.isitXO
         this.drawXO(this.payload)
