@@ -32,18 +32,22 @@ export default {
   },
   methods: {
     ...mapActions([
-      'drawXO'
+      'drawXO',
+      'isWinner'
     ]),
     setXO () {
-      this.payload.cellNum = this.cellNumber
-      this.payload.XorO = this.isitXO
       if (this.isPlaying) {
         this.draw = this.isXO ? 'x' : 'o'
+        this.payload.cellNum = this.cellNumber - 1
+        this.payload.XorO = this.isitXO
         this.drawXO(this.payload)
       } else {
         console.log('Game over...')
       }
     }
+  },
+  beforeUpdate () {
+    this.isWinner()
   }
 }
 </script>

@@ -9,7 +9,8 @@ Vue.use(Vuex)
 const state = {
   isXO: true,
   isPlaying: true,
-  gameField: [],
+  gameField: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  winner: 'undefined',
   win: [
     [0, 1, 2],
     [3, 4, 5],
