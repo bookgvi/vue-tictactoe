@@ -2,10 +2,12 @@ import * as types from './mutation-types'
 
 export const mutations = {
   [types.DRAW_XO]: (state, payload) => {
-    if (state.gameField.length < 9 || state.isPlaying) {
-      state.gameField.splice(payload.cellNum, 1, payload.XorO)
+    if (!state.gameField[payload.cellNum]) {
+      state.gameField.splice(payload.cellNum, 1, state.isXO ? 'X' : 'O')
       state.isXO = !state.isXO
-    } else {
+    } else if (state.gameField[payload.cellNum]) {
+      console.log('Not allowed!')
+    } else if (state.gameField.length > 8) {
       state.isPlaying = false
       state.gameField = []
     }

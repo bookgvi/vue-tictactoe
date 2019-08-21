@@ -27,7 +27,8 @@ export default {
     },
     ...mapGetters([
       'isXO',
-      'isPlaying'
+      'isPlaying',
+      'getGameField'
     ])
   },
   methods: {
@@ -36,13 +37,10 @@ export default {
       'isWinner'
     ]),
     setXO () {
-      if (this.isPlaying) {
-        this.draw = this.isXO ? 'X' : 'O'
+      if (this.isPlaying && !this.getGameField[this.cellNumber - 1]) {
         this.payload.cellNum = this.cellNumber - 1
-        this.payload.XorO = this.isitXO
+        this.draw = this.isXO ? 'X' : 'O'
         this.drawXO(this.payload)
-      } else {
-        console.log('Game over...')
       }
     }
   },
