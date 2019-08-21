@@ -2,17 +2,15 @@ import * as types from './mutation-types'
 
 export const mutations = {
   [types.DRAW_XO]: (state, payload) => {
-    if (!state.gameField[payload.cellNum]) {
+    if (state.moves < 8) {
       state.gameField.splice(payload.cellNum, 1, state.isXO ? 'X' : 'O')
       state.isXO = !state.isXO
-    } else if (state.gameField[payload.cellNum]) {
-      console.log('Not allowed!')
-    } else if (state.gameField.length > 8) {
+      state.moves++
+    } else {
       state.isPlaying = false
-      state.gameField = []
     }
   },
-  [types.IS_WINNER]: (state) => {
+  [types.IS_WINNER]: state => {
     let a, b, c
     for (let i = 0; i < state.win.length; i++) {
       [a, b, c] = state.win[i]
@@ -22,6 +20,13 @@ export const mutations = {
         state.winnerLine = i + 1
       }
     }
+  },
+  [types.NEW_GAME]: state => {
+    state.isXO = true
+    state.isPlaying = true
+    state.moves = 0
+    state.gameField = new Array(9)
+    state.winner = 'Nobody wins :('
+    state.winnerLine = false
   }
-
 }

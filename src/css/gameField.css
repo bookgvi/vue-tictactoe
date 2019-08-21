@@ -7,6 +7,15 @@
   position: relative;
 
 }
+.new-game {     /* Button */
+  width: 150px;
+  height: 20px;
+  margin-left: 30px;
+  margin-bottom: 25px;
+}
+.title {
+  margin-left: 30px;
+}
 .cell {
   background: #fff;
   border: 1px solid #999;
@@ -46,7 +55,7 @@
 }
 
 .line_2 {
-  bottom: 20px;
+  bottom: 25px;
 }
 
 .line_3,
@@ -57,11 +66,11 @@
 }
 
 .line_3 {
-  left: 50px;
+  left: 53px;
 }
 
 .line_4 {
-  right: 80px;
+  right: 85px;
 }
 
 .line_5 {

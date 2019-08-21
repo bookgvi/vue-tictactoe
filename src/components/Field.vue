@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h2 v-if="isPlaying">Ходит {{ this.isXO ? 'X' : 'O' }}</h2>
-    <h1 v-if="!isPlaying" class="winner">The winner is "{{ isWiiner }}"</h1>
+    <h2 v-if="isPlaying" class="title">Ходит {{ this.isXO ? 'X' : 'O' }}</h2>
+    <h2 v-if="!isPlaying" class="title winner">The winner is... "{{ isWiiner }}"</h2>
+    <button @click="resetGame" class="new-game">Restart New Game</button>
+
     <div class="game-field">
       <div v-if="showLine==1" class="line line_1"></div>
       <div v-if="showLine==3" class="line line_2"></div>
@@ -12,9 +14,10 @@
       <div v-if="showLine==5" class="line line_7"></div>
       <div v-if="showLine==2" class="line line_8"></div>
       <game-cell
-        v-for="index in 9"
+        v-for="index in getGameField.length"
         :key="index"
         :cellNumber="index"
+        v-if="isReset"
       />
     </div>
   </div>
@@ -22,10 +25,11 @@
 
 <script>
 import Cell from './Cell'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
+      isReset: true,
       hasWinner: false,
       line: {
         fst: false
@@ -44,8 +48,21 @@ export default {
       'isXO',
       'isPlaying',
       'isWiiner',
-      'winnerLine'
+      'winnerLine',
+      'getGameField'
     ])
+  },
+  methods: {
+    ...mapActions([
+      'restart'
+    ]),
+    resetGame () {
+      this.isReset = false
+      this.restart()
+      setTimeout(() => {
+        this.isReset = true
+      }, 200)
+    }
   }
 }
 </script>
