@@ -19,6 +19,7 @@ export const mutations = {
       if (state.gameField[a] && state.gameField[a] === state.gameField[b] && state.gameField[a] === state.gameField[c]) {
         state.winner = state.gameField[a]
         state.isPlaying = false
+        state.winnerLine = i + 1
       }
     }
   }

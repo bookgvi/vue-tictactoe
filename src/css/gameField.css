@@ -4,6 +4,8 @@
   width: 180px;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+
 }
 .cell {
   background: #fff;
@@ -24,4 +26,60 @@
 
 .winner {
   color: #ff0000;
+}
+.line {
+  height: 5px;
+  width: 140px;
+  background: red;
+  position: absolute;
+  z-index: 9999;
+}
+
+.line_1,
+.line_2,
+.line_8 {
+  left: 4px;
+}
+
+.line_1 {
+  top: 20px;
+}
+
+.line_2 {
+  bottom: 20px;
+}
+
+.line_3,
+.line_4,
+.line_7 {
+  transform: rotate(90deg);
+  top: 70px;
+}
+
+.line_3 {
+  left: 50px;
+}
+
+.line_4 {
+  right: 80px;
+}
+
+.line_5 {
+  transform: rotate(47deg);
+  top: 72px;
+  left: 5px;
+}
+
+.line_6 {
+  transform: rotate(313deg);
+  top: 72px;
+  left: 5px;
+}
+
+.line_7 {
+  left: 5px;
+}
+
+.line_8 {
+  top: 70px;
 }

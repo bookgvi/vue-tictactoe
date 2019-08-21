@@ -11,6 +11,7 @@ const state = {
   isPlaying: true,
   gameField: new Array(9),
   winner: 'Nobody',
+  winnerLine: false,
   win: [
     [0, 1, 2],
     [3, 4, 5],
