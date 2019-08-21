@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    Holly Vue!!!
+    <game-field />
   </div>
 </template>
 
 <script>
+import Field from './components/Field'
 export default {
+  components: {
+    'game-field': Field
+  }
 }
 </script>
 
 <style scoped>
-
 </style>
