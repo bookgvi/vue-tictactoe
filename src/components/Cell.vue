@@ -44,9 +44,6 @@ export default {
       }
     }
   },
-  beforeUpdate () {
-    this.isWinner()
-  }
 }
 </script>
 
