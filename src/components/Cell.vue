@@ -43,7 +43,7 @@ export default {
         this.drawXO(this.payload)
       }
     }
-  },
+  }
 }
 </script>
 

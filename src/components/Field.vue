@@ -1,18 +1,25 @@
 <template>
   <div>
+    <transition name="fade">
     <h2 v-if="isPlaying" class="title">Ходит {{ this.isXO ? 'X' : 'O' }}</h2>
-    <h2 v-if="!isPlaying" class="title winner">The winner is... "{{ isWiiner }}"</h2>
+    </transition>
+    <transition name="fade">
+      <h2 v-if="!isPlaying" class="title winner">The winner is... "{{ isWiiner }}"</h2>
+    </transition>
     <button @click="resetGame" class="new-game">Restart New Game</button>
 
     <div class="game-field">
-      <div v-if="showLine==1" class="line line_1"></div>
-      <div v-if="showLine==3" class="line line_2"></div>
-      <div v-if="showLine==6" class="line line_3"></div>
-      <div v-if="showLine==4" class="line line_4"></div>
-      <div v-if="showLine==7" class="line line_5"></div>
-      <div v-if="showLine==8" class="line line_6"></div>
-      <div v-if="showLine==5" class="line line_7"></div>
-      <div v-if="showLine==2" class="line line_8"></div>
+      <transition name="fade">
+        <div v-if="showLine==1" class="line line_1"></div>
+        <div v-if="showLine==3" class="line line_2"></div>
+        <div v-if="showLine==6" class="line line_3"></div>
+        <div v-if="showLine==4" class="line line_4"></div>
+        <div v-if="showLine==7" class="line line_5"></div>
+        <div v-if="showLine==8" class="line line_6"></div>
+        <div v-if="showLine==5" class="line line_7"></div>
+        <div v-if="showLine==2" class="line line_8"></div>
+      </transition>
+
       <game-cell
         v-for="index in getGameField.length"
         :key="index"
@@ -69,4 +76,10 @@ export default {
 </script>
 
 <style scoped>
+  .fade-enter-active {
+    transition: opacity .8s;
+  }
+  .fade-enter, fade-leave-to {
+    opacity: 0;
+  }
 </style>
